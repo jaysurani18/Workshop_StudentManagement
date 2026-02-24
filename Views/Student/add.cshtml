@@ -1,0 +1,67 @@
+﻿@model Day1_Workshop.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-primary text-white text-center rounded-top-4">
+                <h4 class="mb-0">Add New Student</h4>
+            </div>
+
+            <div class="card-body p-4">
+
+                <form asp-action="Add" method="post">
+
+                    <div class="mb-3">
+                        <label asp-for="student_name" class="form-label fw-semibold"></label>
+                        <input asp-for="student_name" class="form-control rounded-3" placeholder="Enter student name" />
+                        <span asp-validation-for="student_name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="studentbrach" class="form-label fw-semibold"></label>
+                        <input asp-for="studentbrach" class="form-control rounded-3" placeholder="Enter branch" />
+                        <span asp-validation-for="studentbrach" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="student_email" class="form-label fw-semibold"></label>
+                        <input asp-for="student_email" class="form-control rounded-3" placeholder="Enter email address" />
+                        <span asp-validation-for="student_email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DOB" class="form-label fw-semibold"></label>
+                        <input asp-for="DOB" type="date" class="form-control rounded-3" />
+                        <span asp-validation-for="DOB" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="city" class="form-label fw-semibold"></label>
+                        <input asp-for="city" class="form-control rounded-3" placeholder="Enter city" />
+                        <span asp-validation-for="city" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-3">
+                            Save Student
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

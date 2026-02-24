@@ -1,0 +1,25 @@
+﻿@* @model societymanagement.Models *@
+
+<h1>Dashboard</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>Your Balance</h3>
+        <p>₹@Model.Balance</p>
+    </div>
+
+    <div class="card">
+        <h3>Last Payment</h3>
+        <p>₹@Model.LastPayment</p>
+    </div>
+
+    <div class="card">
+        <h3>Complaints</h3>
+        <p>@Model.Complaints</p>
+    </div>
+
+    <div class="card">
+        <h3>Support</h3>
+        <p>@Model.SupportStatus</p>
+    </div>
+</div>
