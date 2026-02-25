@@ -28,7 +28,8 @@ namespace societymanagement.Controllers
         {
             db.STUDENTS.Add(s);
             db.SaveChanges();
-           return RedirectToAction("Index");
+            return RedirectToAction("Index");
+      
         }
-    }
+    } 
 }

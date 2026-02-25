@@ -15,6 +15,19 @@ namespace societymanagement
 
             builder.Services.AddDbContext<STUDENTDB>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
 
+            // Add Session (MUST be before Build)
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            //services
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
 
             var app = builder.Build();
@@ -33,7 +46,10 @@ namespace societymanagement
             app.UseRouting();
 
             app.UseAuthorization();
-
+             
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
